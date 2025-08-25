@@ -15,39 +15,25 @@
 // After that, we will swap the minimum element with the first element of the selected range(in step 1). 
 // Finally, after each iteration, we will find that the array is sorted up to the first index of the range. 
 
-import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        //Selection Sort Algorithm
+        int[] arr = {1, 5, 3, 2, 0, 8,4};
+        int n= 7;
 
-public class tUf {
-    static void selection_sort(int arr[], int n) {
-        for (int i = 0; i < n - 1; i++) {
-            int mini = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[mini]) {
-                    mini = j;
+        for(int i=0;i<=n-2;i++){
+            int min = i;
+            for(int j=i+1;j<=n-1;j++){
+                if(arr[j]<arr[min]){
+                    min = j;
                 }
             }
-            //swap
-            int temp = arr[mini];
-            arr[mini] = arr[i];
+            int temp = arr[min];
+            arr[min] = arr[i];
             arr[i] = temp;
         }
-
-        System.out.println("After selection sort:");
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
+        for(int result :arr){
+            System.out.println(result);
         }
-        System.out.println();
-    }
-
-    public static void main(String args[]) {
-
-        int arr[] = {13, 46, 24, 52, 20, 9};
-        int n = arr.length;
-        System.out.println("Before selection sort:");
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-        selection_sort(arr, n);
     }
 }
