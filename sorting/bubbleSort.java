@@ -16,37 +16,30 @@
 // After (n-1) iteration, the whole array will be sorted.
 
 
-import java.util.*;
-
-public class tUf {
-    static void bubble_sort(int[] arr, int n) {
-        for (int i = n - 1; i >= 0; i--) {
-            for (int j = 0; j <= i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
+public class BubbleSort{
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5,6};
+        int n = 6;
+        int didswap = 0;
+        for(int i=n-1;i>=0;i--){
+            for(int j=0;j<=i-1;j++){
+                if(arr[j]>arr[j+1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
+                    didswap = 1;
                 }
             }
-        }
+            if(didswap==0){
+                break;
+            }
 
-        System.out.println("After bubble sort: ");
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
+            System.out.println("running");
         }
-        System.out.println();
-    }
-    public static void main(String args[]) {
-        int arr[] = {13, 46, 24, 52, 20, 9};
-        int n = arr.length;
-        System.out.println("Before Using Bubble Sort: ");
-        for (int i = 0; i < n; i++) {
-            System.out.print(arr[i] + " ");
+        for(int result : arr){
+            System.out.println(result);
         }
-        System.out.println();
-        bubble_sort(arr, n);
     }
-
 }
 
 
