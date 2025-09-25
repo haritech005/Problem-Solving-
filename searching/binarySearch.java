@@ -20,6 +20,7 @@
 // Online Java Compiler
 // Use this editor to write, compile and run your Java code online
 
+// Recrusive Apporach
 class Main {
     public static void main(String[] args) {
     //  Code for binary search
@@ -47,5 +48,35 @@ class Main {
     if(!isFound){
         System.out.println(-1);
     }
+    }
+}
+
+// Iterative apporach
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+    //  Code for binary search
+int [] arr = {1,2,3,4,5,6};
+    System.out.println(binary(arr,0,arr.length-1,9));
+    
+    }
+    public static int binary(int arr[],int low, int high,int target){
+        if(low>high){
+            return -1;
+        }
+        int mid = (low+high)/2;
+        if(arr[mid]==target){
+            return mid;
+        }
+        else if(target < arr[mid]){
+            high = mid -1;
+        }
+        else{
+            low = mid+1;
+        }
+        return binary(arr,low,high,target);
     }
 }
