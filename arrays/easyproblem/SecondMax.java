@@ -15,6 +15,7 @@ class Solution {
            else if (arr[i]<max && arr[i]>min){
                min = arr[i];
            }
+           
        }
        
        if(min == max || min ==Integer.MIN_VALUE){
