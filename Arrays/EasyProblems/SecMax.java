@@ -33,14 +33,17 @@ class Main {
 // Optimial solution 
 class Main {
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,4,6,6,8};
-        int max = arr[0];
-        int secMax = arr[0];
+        int[] arr = {5, 1, 4};
+        int max = Integer.MIN_VALUE;
+        int secMax = Integer.MIN_VALUE;
 
         for(int i=0;i<=arr.length-1;i++){
             if(arr[i]>max){
                 secMax = max;
                 max = arr[i];
+            }
+            else if (arr[i] > secMax && arr[i] < max) {
+                secMax = arr[i];
             }
         }
         System.out.println(secMax);
