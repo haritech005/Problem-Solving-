@@ -25,3 +25,46 @@ class Main {
        
     }
 }
+
+// Finding Maximum and Minimum element in the given Hashmap
+import java.util.HashMap;
+import java.util.*;
+
+
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {1,1,1,2,3,1,2,3,1,3};
+
+       HashMap <Integer, Integer> map = new HashMap<>();
+       
+       for(int x : arr){
+        map.put(x,map.getOrDefault(x,0)+1);
+       }
+
+        int maxFreq = Integer.MIN_VALUE;
+        int minFreq = Integer.MAX_VALUE;
+
+        int maxElement = 0;
+        int minElement = 0;
+
+        for(Map.Entry<Integer,Integer> entry : map.entrySet()){
+            int element = entry.getKey();
+            int frequency = entry.getValue();
+
+            if(frequency > maxFreq){
+                maxFreq = frequency;
+                maxElement = element;
+            }
+
+            if(frequency < minFreq){
+                minFreq = frequency;
+                minElement = element;
+            }
+        }
+
+        System.out.println(maxElement + " "+ minElement);
+
+
+
+    }
+}
