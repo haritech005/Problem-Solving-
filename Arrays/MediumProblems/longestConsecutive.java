@@ -82,4 +82,40 @@ class Main {
     }
 }
 
+//Optimal Solution
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,5,6,3};
+        int longest = 1;
+        
+        Set<Integer> st = new HashSet<>();
+        
+        for(int i=0;i<arr.length;i++){
+            st.add(arr[i]);
+        }
+        
+        for(int it : st){
+            if(!st.contains(it-1)){
+                int count = 1;
+                int x = it;
+                
+                while(st.contains(x+1)){
+                    count+=1;
+                    x = x+1;;
+                }
+                
+                longest = Math.max(longest,count);
+            }
+        }
+        System.out.println(longest);
+    }
+}
+
+
+
+
+
+
 
