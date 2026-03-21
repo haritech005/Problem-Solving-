@@ -86,6 +86,79 @@ class Main {
             System.out.println();
         }
     }
+
+
+    //Optimal
+
+    public class SetMatrixZeroOptimal {
+    public static void main(String[] args) {
+        int[][] matrix = {{1,1,1},{1,0,1},{1,1,1}};
+
+        boolean firstRowZero = false;
+        boolean firstColumnZero = false;
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        //step 1 : first row/col markers
+        for(int j=0;j<n;j++){
+            if(matrix[0][j] ==0){
+                firstRowZero=true;
+                break;
+            }
+        }
+
+        for(int i=0;i<m;i++){
+            if(matrix[i][0] ==0){
+                firstColumnZero = true;
+                break;
+            }
+        }
+
+        // step 2 : Mark row/column using first row/col
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(matrix[i][j] ==0){
+                    matrix[0][j] =0;
+                    matrix[i][0] =0;
+                }
+            }
+        }
+
+        //step 3 : Update based on markers
+        for(int i=1;i<m;i++){
+            for(int j=1;j<n;j++){
+                if(matrix[0][j] ==0 || matrix[i][0]==0){
+                    matrix[i][j] =0;
+                }
+            }
+        }
+
+        // step 4 : fix first row
+        if(firstRowZero){
+            for(int j=0;j<n;j++){
+                matrix[0][j] =0;
+            }
+        }
+
+        //step 5 : fix first column
+        if(firstColumnZero){
+            for(int i=0;i<m;i++){
+                matrix[i][0] =0;
+            }
+        }
+
+        //printing the values
+        for(int[] data : matrix){
+            for(int res : data){
+                System.out.print(res);
+            }
+            System.out.println();
+        }
+
+    }
+}
+
 }
   
 }
