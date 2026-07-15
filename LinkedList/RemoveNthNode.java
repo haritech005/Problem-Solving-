@@ -26,3 +26,19 @@ static Node RemoveN(Node head, int n){
 
         return head;
     }
+
+//Optimal
+
+    static Node RemoveNOptimal(Node head, int n){
+        Node fast = head;
+        for(int i=0;i<n;i++){
+            fast = fast.next;
+        }
+        Node slow = head;
+        while(fast.next!=null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        slow.next = slow.next.next;
+        return head;
+    }
